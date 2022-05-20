@@ -14,6 +14,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         int numar;
+        boolean variabilaBoolean = true;
 
         do {
             System.out.println("------MENIU------");
@@ -21,11 +22,17 @@ public class Main {
             System.out.println("Tasteaza 2 pentru eliminare element");
             System.out.println("Tasteaza 3 pentru adaugare element");
             System.out.println("Tasteaza 4 pentru cautae element");
+            System.out.println("Tasteaza 0 pentru a iesi");
             System.out.println("----------------------------------");
             System.out.print("Introdu numarul: ");
             numar = scanner.nextInt();
 
             switch (numar) {
+                case 0: {
+                    variabilaBoolean=false;
+                    System.out.println("Exit");
+                    break;
+                }
                 case 1: {
                     afiseazaLista(listaStudent);
                     System.out.println("----------------------------------");
@@ -53,7 +60,7 @@ public class Main {
 
             }
 
-        } while (numar != 0);
+        } while (variabilaBoolean);
     }
 
     public static void afiseazaLista(ArrayList<Student> listaStud) {
@@ -107,11 +114,25 @@ public class Main {
         System.out.print("Introduceti nume pentru cautare ");
         nume = scanner.nextLine();
         System.out.println("----------------------------------");
+
+
+        boolean exista=false;
         for (int i = 0; i < listaStudent.size(); i++){
-        if (nume == null ? listaStudent.get(i).getNume() == null : nume.equals(listaStudent.get(i).getNume()))
+            if (listaStudent.get(i).getNume().equals(nume))
+            {
                 System.out.println(listaStudent.get(i));
-        else System.out.println("Nu exista asa Element");
+                exista=true;
+            }
         }
+        if(exista==false){
+            System.out.println("Nu avem asa element");
+        }
+
+//        for (int i = 0; i < listaStudent.size(); i++){
+//        if (nume == null ? listaStudent.get(i).getNume() == null : nume.equals(listaStudent.get(i).getNume()))
+//                System.out.println(listaStudent.get(i));
+//        else System.out.println("Nu exista asa Element");
+//        }
 
     }
 
