@@ -2,11 +2,14 @@ package JUnit;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class Testare {
 
 
     @Test
-    public void met(){
+    public void met()
+    {assertTrue(2==2);
         System.out.println();
     }
     @Test
